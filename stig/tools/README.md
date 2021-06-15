@@ -67,11 +67,24 @@ While the scale-deployment.ps1 can be used for single VM deployments, it can als
 Copy ATO Toolkit STIG Solution Templates to an Azure Storage Account using publish-to-blob.ps1 and display Azure Portal Deployment Uris.
 
 ```PowerShell
-.\publish-to-blob.ps1 -ResourceGroupName atotoolkit -StorageAccountName atotoolkit -ContainerName atotoolkit -Environment AzureUSGovernment
+$publishBlobParams = @{
+    ResourceGroupName  = 'atotoolkit'
+    StorageAccountName = 'atotoolkit'
+    ContainerName      = 'atotoolkit'
+    Environment        = 'AzureUSGovernment'
+}
+.\publish-to-blob.ps1 @publishBlobParams
 ```
 
 Copy ATO Toolkit STIG Solution Templates to an Azure Storage Account and invoke a scale deployment with deployments from a PowerShell Data File.
 
 ```PowerShell
-.\kick-start-scaled-deployment.ps1 -ResourceGroupName atotoolkit -StorageAccountName atotoolkit -ContainerName atotoolkit -DataFilePath .\examples\scale-deployment-data-1.psd1 -Verbose
+@kickStartParams = @{
+    ResourceGroupName  = 'atotoolkit'
+    StorageAccountName = 'atotoolkit'
+    ContainerName      = 'atotoolkit'
+    DataFilePath       = '.\examples\scale-deployment-data-1.psd1'
+    Verbose            = $true
+}
+.\kick-start-scaled-deployment.ps1 @kickStartParams
 ```
