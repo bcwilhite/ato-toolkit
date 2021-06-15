@@ -10,6 +10,8 @@ In order to use the scale deployment scripts included with the ATO Toolkit, the 
   * AzureCloud
   * AzureUSGovernment
   * AzureGermanCloud
+* Existing Azure Resource Group
+* Existing Azure Storage Account
 * Windows PowerShell v5 or PowerShell v7
 * Azure PowerShell Modules
   * Az v5.9.0 or greater
@@ -79,7 +81,7 @@ $publishBlobParams = @{
 Copy ATO Toolkit STIG Solution Templates to an Azure Storage Account and invoke a scale deployment with deployments from a PowerShell Data File.
 
 ```PowerShell
-@kickStartParams = @{
+$kickStartParams = @{
     ResourceGroupName  = 'atotoolkit'
     StorageAccountName = 'atotoolkit'
     ContainerName      = 'atotoolkit'
