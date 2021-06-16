@@ -71,8 +71,8 @@ Copy ATO Toolkit STIG Solution Templates to an Azure Storage Account using publi
 ```PowerShell
 $publishBlobParams = @{
     ResourceGroupName  = 'atotoolkit'
-    StorageAccountName = 'atotoolkit'
-    ContainerName      = 'atotoolkit'
+    StorageAccountName = 'atotoolkitscale'
+    ContainerName      = 'artifacts'
     Environment        = 'AzureUSGovernment'
 }
 .\publish-to-blob.ps1 @publishBlobParams
@@ -85,8 +85,8 @@ Copy ATO Toolkit STIG Solution Templates to an Azure Storage Account and invoke 
 ```PowerShell
 $kickStartParams = @{
     ResourceGroupName  = 'atotoolkit'
-    StorageAccountName = 'atotoolkit'
-    ContainerName      = 'atotoolkit'
+    StorageAccountName = 'atotoolkitscale'
+    ContainerName      = 'artifacts'
     DataFilePath       = '.\examples\scale-deployment-data-1.psd1'
     Verbose            = $true
 }
