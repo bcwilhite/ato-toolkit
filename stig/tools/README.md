@@ -1,10 +1,10 @@
 # Azure STIG Templates for (Linux & Windows) Scale Deployment
 
-Based on community feedback, **Scale Deployment** scripts have been created for the ATO Toolkit. These scripts facilitate scaled VM deployment using the included ARM Templates and associated artifacts. Scale deployment can be enabled by simply supplying the required data via script parameters or a specially crafted PowerShell data file.
+Based on community feedback, **Scale Deployment** scripts have been created for the ATO Toolkit. The scripts included in the tools directory can be used to scaled VM deployment with the included ARM Templates and associated artifacts. Scale deployment can be enabled by supplying the required data via script parameters or a specially crafted PowerShell data file.
 
 ## Prerequisites
 
-In order to use the scale deployment scripts included with the ATO Toolkit, the following requirements must be met.
+To use the scale deployment scripts included with the ATO Toolkit, the following requirements must be met.
 
 * Azure Subscription in a supported region
   * AzureCloud
@@ -19,7 +19,7 @@ In order to use the scale deployment scripts included with the ATO Toolkit, the 
 
 ## Included Components
 
-* **publish-to-blob.ps1:** This script can be used to upload the included template json files as well as the supporting automation artifacts to a specified Azure Storage Account.
+* **publish-to-blob.ps1:** This script can be used to upload the included template json files and supporting automation artifacts to a specified Azure Storage Account.
 * **scale-deployment.ps1:** This script is used to create STIG VM deployments based on the included mainTemplate.json files for Linux and Windows.
 * **kick-start-scaled-deployment.ps1:** This script couples both the publish-to-blob and scale-deployment scripts to copy the needed artifacts and invoke a scaled VM deployment.
 
@@ -31,7 +31,7 @@ While the scale-deployment.ps1 can be used for single VM deployments, it can als
 
 ```PowerShell
 @{
-    # Datafile structure is single key/value pair, where the "value" is an array of hashtables decribing each VM deployment.
+    # Data file structure is single key/value pair, where the "value" is an array of hash tables describing each VM deployment.
     AllNodes =
     @(
         @{
@@ -49,7 +49,7 @@ While the scale-deployment.ps1 can be used for single VM deployments, it can als
             VmNamePrefix                  = 'ato-' # VM Name prefix, i.e.: 'ato-'
             VmNameSuffixDelimiter         = '-' # Delimiter used in conjunction with VmName and Suffix Starting Number, i.e.: '-'
             VmNameSuffixStartingNumber    = 1 # VM Name Suffix Starting number, used to create unique VM Name, i.e.: 1
-            Count                         = 1 # Number of unque VMs or VM Availability Sets to deploy, i.e.: 2
+            Count                         = 1 # Number of unique VMs or VM Availability Sets to deploy, i.e.: 2
             InstanceCount                 = 2 # Number of VMs to deploy per Availability Set (valid range 1-5), i.e.: 2
             FaultDomains                  = 2 # Fault domains (valid range 1-3), i.e.: 2
             UpdateDomains                 = 3 # Update domains (valid range 1-5), i.e.: 3
@@ -66,7 +66,7 @@ While the scale-deployment.ps1 can be used for single VM deployments, it can als
 
 ## Examples
 
-Copy ATO Toolkit STIG Solution Templates to an Azure Storage Account using publish-to-blob.ps1 and display Azure Portal Deployment Uris.
+Copy ATO Toolkit STIG Solution Templates to an Azure Storage Account using publish-to-blob.ps1 and display Azure portal Deployment Uris.
 
 ```PowerShell
 $publishBlobParams = @{
