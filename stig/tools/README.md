@@ -78,6 +78,8 @@ $publishBlobParams = @{
 .\publish-to-blob.ps1 @publishBlobParams
 ```
 
+The screenshot below displays the results of the above code example. The links generated can be copied/pasted into a browser to step through an Azure portal deployment. ![publishtoblobexample](https://raw.githubusercontent.com/wiki/azure/ato-toolkit/images/publishtoblobmsmall.png)
+
 Copy ATO Toolkit STIG Solution Templates to an Azure Storage Account and invoke a scale deployment with deployments from a PowerShell Data File.
 
 ```PowerShell
